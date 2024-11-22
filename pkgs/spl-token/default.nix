@@ -40,7 +40,6 @@ rustPlatform.buildRustPackage {
     description = "Solana Program Library Token";
     homepage = "https://github.com/solana-labs/solana-program-library";
     license = licenses.asl20;
-    maintainers = with maintainers; [ wyzdwdz ];
     platforms = platforms.linux;
     broken = false;
   };
