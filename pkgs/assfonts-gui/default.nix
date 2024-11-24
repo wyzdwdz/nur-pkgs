@@ -19,7 +19,7 @@ appimageTools.wrapType2 rec {
 
   tarSrc = fetchTarball {
     url =
-      "https://github.com/wyzdwdz/assfonts/releases/download/v${version}/assfonts-v${version}-${arch}-Linux.tar.gz";
+      "git+https://github.com/wyzdwdz/assfonts/releases/download/v${version}/assfonts-v${version}-${arch}-Linux.tar.gz";
     sha256 = sha256Arch;
   };
 
