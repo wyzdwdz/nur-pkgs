@@ -35,7 +35,8 @@ appimageTools.wrapType2 rec {
 
   extraInstallCommands = ''
     install -m 444 -D ${appimageContents}/assfonts-gui.desktop -t $out/share/applications
-    cp -r ${appimageContents}/usr/share/icons $out/share
+    mkdir -p $out/share/icons
+    cp ${appimageContents}/usr/share/icons/icon.png $out/share/icons/assfonts-gui.png
   '';
 
   meta = with lib; {
