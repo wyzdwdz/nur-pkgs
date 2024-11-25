@@ -1,4 +1,4 @@
-{ stdenv, lib, appimageTools }:
+{ stdenv, lib, appimageTools, fetchzip }:
 
 appimageTools.wrapType2 rec {
   version = "0.7.3";
@@ -12,17 +12,18 @@ appimageTools.wrapType2 rec {
     else if stdenv.system == "armv7l-linux" then "armhf"
     else abort ("Unsupported platform");
 
-  sha256Arch =
-    if stdenv.system == "x86_64-linux" then "0y46kn9arglggki5qwzrzvk8gjxxxkvyp3gr2134jdk9c8ykifmd"
-    else if stdenv.system == "i686-linux" then "12m4rqrf3iwa33jvh9s3p7yshd8b1jkdsvrlxgqdphrr3zd83jw3"
-    else if stdenv.system == "aarch64-linux" then "0jgwbsl7z8mghymfm2r2gvb2114axihs8b1ghqp7mx6fshxw9vhi"
-    else if stdenv.system == "armv7l-linux" then "1nq9pnd5bn7i0qp2gk40vn1dxrhinlw4qhn80y25niry8y9nada0"
+  hashArch =
+    if stdenv.system == "x86_64-linux" then "sha256-rbo4PWJpNklGEPmN6/fsvcuH5v75c1zifI++rJKdhng="
+    else if stdenv.system == "i686-linux" then "sha256-g8uB2h85w9vw6zRv3aYMCzWo/blDJ7jlGIrH4TLOpIo="
+    else if stdenv.system == "aarch64-linux" then "sha256-Ee7EO9TO9Houhi8spGHsioQg1n4ii+qqh6+if6he/Ek="
+    else if stdenv.system == "armv7l-linux" then "sha256-QDVlk0c+R1uEB8hCTDi1Eebegt2AzCcuBvHYVZq9Cds="
     else abort ("Unsupported platform");
 
-  tarSrc = fetchTarball {
+  tarSrc = fetchzip {
     url =
       "https://github.com/wyzdwdz/assfonts/releases/download/v${version}/assfonts-v${version}-${arch}-Linux.tar.gz";
-    sha256 = sha256Arch;
+    hash = hashArch;
+    stripRoot = false;
   };
 
   src = "${tarSrc}/assfonts-gui.AppImage";
