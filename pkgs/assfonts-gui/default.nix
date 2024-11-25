@@ -9,12 +9,16 @@ appimageTools.wrapType2 rec {
     if stdenv.system == "x86_64-linux" then "x86_64"
     else if stdenv.system == "i686-linux" then "i686"
     else if stdenv.system == "aarch64-linux" then "aarch64"
+    else if stdenv.system == "armv7a-linux" then "armhf"
+    else if stdenv.system == "armv7l-linux" then "armhf"
     else abort ("Unsupported platform");
 
   sha256Arch =
     if stdenv.system == "x86_64-linux" then "0y46kn9arglggki5qwzrzvk8gjxxxkvyp3gr2134jdk9c8ykifmd"
     else if stdenv.system == "i686-linux" then "12m4rqrf3iwa33jvh9s3p7yshd8b1jkdsvrlxgqdphrr3zd83jw3"
     else if stdenv.system == "aarch64-linux" then "0jgwbsl7z8mghymfm2r2gvb2114axihs8b1ghqp7mx6fshxw9vhi"
+    else if stdenv.system == "armv7a-linux" then "1nq9pnd5bn7i0qp2gk40vn1dxrhinlw4qhn80y25niry8y9nada0"
+    else if stdenv.system == "armv7l-linux" then "1nq9pnd5bn7i0qp2gk40vn1dxrhinlw4qhn80y25niry8y9nada0"
     else abort ("Unsupported platform");
 
   tarSrc = fetchTarball {
@@ -38,7 +42,7 @@ appimageTools.wrapType2 rec {
     description = "Subset fonts and embed them into an ASS subtitle (GUI version)";
     homepage = "https://github.com/wyzdwdz/assfonts";
     license = lib.licenses.gpl3;
-    platforms = platforms.linux;
+    platforms = [ "x86_64-linux" "i686-linux" "aarch64-linux" "armv7a-linux" "armv7l-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     mainProgram = "assfonts-gui";
   };
