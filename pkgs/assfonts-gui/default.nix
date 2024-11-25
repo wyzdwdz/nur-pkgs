@@ -39,12 +39,14 @@ appimageTools.wrapType2 rec {
     cp ${appimageContents}/usr/share/icons/icon.png $out/share/icons/assfonts-gui.png
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Subset fonts and embed them into an ASS subtitle (GUI version)";
     homepage = "https://github.com/wyzdwdz/assfonts";
+    downloadPage = "https://github.com/wyzdwdz/assfonts/releases";
     license = lib.licenses.gpl3;
     platforms = [ "x86_64-linux" "i686-linux" "aarch64-linux" "armv7a-linux" "armv7l-linux" ];
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    sourceProvenance = lib.sourceTypes.binaryNativeCode;
     mainProgram = "assfonts-gui";
+    broken = false;
   };
 }
