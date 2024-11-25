@@ -45,7 +45,7 @@ appimageTools.wrapType2 rec {
     downloadPage = "https://github.com/wyzdwdz/assfonts/releases";
     license = lib.licenses.gpl3;
     platforms = [ "x86_64-linux" "i686-linux" "aarch64-linux" "armv7a-linux" "armv7l-linux" ];
-    sourceProvenance = lib.sourceTypes.binaryNativeCode;
+    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     mainProgram = "assfonts-gui";
     broken = false;
   };
