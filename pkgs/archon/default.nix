@@ -35,7 +35,7 @@ appimageTools.wrapType2 rec {
   meta = with lib; {
     description = "The complete toolkit for mastering endgame content";
     homepage = "https://www.archon.gg/";
-    license.free = false;
+    license = lib.licenses.unfree;
     platforms = [ "x86_64-linux" ];
     mainProgram = "archon";
     broken = false;
