@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchgit {
     url = "https://github.com/amir1376/ab-download-manager.git";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-7b4pYRe+mRdP7tGVA3lpzP2bt8IboL8oLVr/FiqzXWo=";
+    hash = "sha256-YDARV3pbT8jvWuYthgKN+XxgJdDuZNbfqvfddKnp1Ls=";
   };
 
   nativeBuildInputs = [
