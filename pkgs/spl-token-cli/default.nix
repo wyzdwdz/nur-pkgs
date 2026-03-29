@@ -7,7 +7,7 @@
   openssl,
 }:
 
-rustPlatform.buildRustPackage finalAttrs ({
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spl-token-cli";
   version = "5.5.0";
 
